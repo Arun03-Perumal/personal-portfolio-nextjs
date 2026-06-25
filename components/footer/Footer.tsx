@@ -16,19 +16,20 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-slate-50 py-10">
-      <div className="mx-auto max-w-7xl px-6">
+    <footer className="border-t bg-slate-50 py-8 md:py-10">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
 
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-6 text-center">
 
           {/* Name */}
-          <div className="text-center">
 
-            <h3 className="text-2xl font-bold">
+          <div>
+
+            <h3 className="text-xl font-bold sm:text-2xl">
               {profile.name}
             </h3>
 
-            <p className="mt-2 text-slate-500">
+            <p className="mt-2 text-sm text-slate-500 sm:text-base">
               {profile.subtitle}
             </p>
 
@@ -36,9 +37,8 @@ export default function Footer() {
 
           {/* Social Links */}
 
-          <div className="flex flex-wrap justify-center gap-5 text-2xl">
+          <div className="flex flex-wrap justify-center gap-5 text-xl sm:text-2xl">
 
-            {/* GitHub */}
             <Link
               href={socialLinks.github}
               target="_blank"
@@ -47,7 +47,6 @@ export default function Footer() {
               <FaGithub />
             </Link>
 
-            {/* LinkedIn */}
             <Link
               href={socialLinks.linkedin}
               target="_blank"
@@ -56,7 +55,6 @@ export default function Footer() {
               <FaLinkedin />
             </Link>
 
-            {/* Instagram */}
             <Link
               href={socialLinks.instagram}
               target="_blank"
@@ -65,7 +63,6 @@ export default function Footer() {
               <FaInstagram />
             </Link>
 
-            {/* LeetCode */}
             <Link
               href={socialLinks.leetcode}
               target="_blank"
@@ -74,7 +71,6 @@ export default function Footer() {
               <SiLeetcode />
             </Link>
 
-            {/* HackerRank */}
             <Link
               href={socialLinks.hackerrank}
               target="_blank"
@@ -83,7 +79,6 @@ export default function Footer() {
               <FaHackerrank />
             </Link>
 
-            {/* GeeksforGeeks */}
             <Link
               href={socialLinks.geeksforgeeks}
               target="_blank"
@@ -98,14 +93,14 @@ export default function Footer() {
 
           <a
             href={`mailto:${profile.email}`}
-            className="text-slate-500 transition hover:text-slate-800"
+            className="break-all text-sm text-slate-500 transition hover:text-slate-800 sm:text-base"
           >
             {profile.email}
           </a>
 
           {/* Copyright */}
 
-          <p className="text-sm text-slate-400">
+          <p className="text-center text-xs text-slate-400 sm:text-sm">
             © {new Date().getFullYear()} {profile.name}. All Rights Reserved.
           </p>
 
