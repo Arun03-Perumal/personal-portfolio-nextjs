@@ -1,112 +1,59 @@
+import { profile } from "@/data/profile";
+
 export default function About() {
   return (
-    <section
-      id="about"
-      className="bg-white py-24"
-    >
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-6">
 
-        <div className="text-center mb-16">
-
-          <h2 className="text-4xl md:text-5xl font-bold">
+        <div className="mb-16 text-center">
+          <h2 className="text-4xl font-bold md:text-5xl">
             About Me
           </h2>
 
-          <p className="text-slate-500 mt-4">
+          <p className="mt-4 text-slate-500">
             Get to know me better
           </p>
-
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-
-          {/* Left Side */}
+        <div className="grid items-center gap-12 md:grid-cols-2">
 
           <div>
 
-            <h3 className="text-3xl font-semibold mb-6">
+            <h3 className="mb-6 text-3xl font-semibold">
               Who Am I?
             </h3>
 
-            <p className="text-slate-600 leading-8 mb-6">
-              I'm Arun Perumal, a passionate Computer Science and
-              Engineering student at Meenakshi College of Engineering.
-              I enjoy building modern web applications and solving
-              real-world problems through technology.
+            <p className="mb-6 leading-8 text-slate-600">
+              {profile.description}
             </p>
 
-            <p className="text-slate-600 leading-8">
-              My interests include Frontend Development, React,
-              Next.js, TypeScript, MERN Stack Development,
-              Supabase, Cloud Technologies and AI-powered
-              applications.
+            <p className="leading-8 text-slate-600">
+              I enjoy building scalable web applications,
+              exploring modern technologies and continuously
+              improving my development skills.
             </p>
 
           </div>
 
-          {/* Right Side */}
-
           <div className="grid grid-cols-2 gap-6">
 
-            <div className="rounded-xl border p-6 shadow-sm">
-              <h4 className="font-semibold mb-2">
-                Name
-              </h4>
+            <InfoCard title="Name" value={profile.name} />
 
-              <p className="text-slate-600">
-                Arun Perumal
-              </p>
-            </div>
+            <InfoCard title="Degree" value={profile.degree} />
 
-            <div className="rounded-xl border p-6 shadow-sm">
-              <h4 className="font-semibold mb-2">
-                Degree
-              </h4>
+            <InfoCard title="College" value={profile.college} />
 
-              <p className="text-slate-600">
-                B.E CSE
-              </p>
-            </div>
+            <InfoCard title="Location" value={profile.location} />
 
-            <div className="rounded-xl border p-6 shadow-sm">
-              <h4 className="font-semibold mb-2">
-                College
-              </h4>
+            <InfoCard
+              title="Graduation"
+              value={profile.graduation}
+            />
 
-              <p className="text-slate-600">
-                Meenakshi College of Engineering
-              </p>
-            </div>
-
-            <div className="rounded-xl border p-6 shadow-sm">
-              <h4 className="font-semibold mb-2">
-                Location
-              </h4>
-
-              <p className="text-slate-600">
-                Chennai, Tamil Nadu
-              </p>
-            </div>
-
-            <div className="rounded-xl border p-6 shadow-sm">
-              <h4 className="font-semibold mb-2">
-                Focus
-              </h4>
-
-              <p className="text-slate-600">
-                Full Stack Development
-              </p>
-            </div>
-
-            <div className="rounded-xl border p-6 shadow-sm">
-              <h4 className="font-semibold mb-2">
-                Experience
-              </h4>
-
-              <p className="text-slate-600">
-                Student Developer
-              </p>
-            </div>
+            <InfoCard
+              title="Role"
+              value={profile.title}
+            />
 
           </div>
 
@@ -114,5 +61,25 @@ export default function About() {
 
       </div>
     </section>
+  );
+}
+
+function InfoCard({
+  title,
+  value,
+}: {
+  title: string;
+  value: string;
+}) {
+  return (
+    <div className="rounded-xl border border-slate-200 p-6 shadow-sm">
+      <h4 className="mb-2 font-semibold">
+        {title}
+      </h4>
+
+      <p className="text-slate-600">
+        {value}
+      </p>
+    </div>
   );
 }

@@ -1,17 +1,15 @@
 export const socialLinks = {
-  github: "",
+  github: "#",
 
-  linkedin: "",
+  linkedin: "#",
 
-  instagram: "",
+  instagram: "#",
 
-  twitter: "",
+  twitter: "#",
 
-  leetcode: "",
+  leetcode: "#",
 
-  hackerrank: "",
+  hackerrank: "#",
 
-  geeksforgeeks: "",
-
-  email: "",
+  geeksforgeeks: "#",
 };
