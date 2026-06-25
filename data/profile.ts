@@ -8,7 +8,7 @@ export const profile = {
   subtitle: "React • Next.js • MERN Stack Developer",
 
   description:
-    "Computer Science Engineering student passionate about building scalable web applications using React, Next.js, TypeScript and Supabase.",
+    "Computer Science Engineering student passionate about building scalable web applications using React, Next.js, TypeScript, Supabase and PostgreSQL.",
 
   email: "YOUR_EMAIL",
 

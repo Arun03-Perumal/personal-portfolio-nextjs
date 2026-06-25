@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
+import { skillGroups } from "@/data/skills";
 
 export default function Hero() {
   return (
@@ -29,9 +30,9 @@ export default function Hero() {
               {profile.description}
             </p>
 
-            {/* Skill Tags */}
+            {/* Frontend Skills */}
             <div className="mb-8 flex flex-wrap gap-3">
-              {profile.skills.map((skill) => (
+              {skillGroups[0].skills.map((skill) => (
                 <span
                   key={skill}
                   className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:bg-slate-100"
@@ -45,7 +46,10 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4">
 
               <Button asChild size="lg">
-                <a href={profile.resume} download>
+                <a
+                  href={profile.resume}
+                  download
+                >
                   Download Resume
                 </a>
               </Button>
@@ -69,7 +73,7 @@ export default function Hero() {
 
             <div className="flex h-96 w-96 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
 
-              {/* Replace with Image component after adding profile photo */}
+              {/* Profile Image Placeholder */}
 
               <span className="text-7xl font-bold text-slate-700">
                 {profile.shortName
