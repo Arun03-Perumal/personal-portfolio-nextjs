@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
 
@@ -20,10 +19,11 @@ export default function Hero() {
         <div className="grid items-center gap-16 lg:grid-cols-2">
 
           {/* Left Section */}
+
           <div>
 
             <p className="mb-4 text-lg font-medium text-blue-600">
-              👋 Hello, I'm
+              Hello, I'm
             </p>
 
             <h1 className="mb-4 text-6xl font-extrabold tracking-tight text-slate-900 lg:text-7xl">
@@ -45,7 +45,6 @@ export default function Hero() {
             {/* Hero Skills */}
 
             <div className="mb-8 flex flex-wrap gap-3">
-
               {heroSkills.map((skill) => (
                 <span
                   key={skill}
@@ -54,7 +53,6 @@ export default function Hero() {
                   {skill}
                 </span>
               ))}
-
             </div>
 
             {/* Buttons */}
@@ -67,7 +65,11 @@ export default function Hero() {
                 </a>
               </Button>
 
-              <Button asChild variant="outline" size="lg">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+              >
                 <a href="#contact">
                   Contact Me
                 </a>
@@ -114,27 +116,15 @@ export default function Hero() {
 
           <div className="flex justify-center">
 
-            <div className="flex h-96 w-96 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-gradient-to-br from-slate-100 via-slate-200 to-blue-100 shadow-[0_25px_70px_rgba(37,99,235,0.15)]">
+            <div className="flex h-96 w-96 flex-col items-center justify-center rounded-full border border-slate-200 bg-gradient-to-br from-slate-100 via-slate-200 to-blue-100 shadow-[0_25px_70px_rgba(37,99,235,0.15)] transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_80px_rgba(37,99,235,0.2)]">
 
-              {/* Replace with your profile image */}
+              <span className="select-none font-mono text-7xl font-bold tracking-tight text-slate-700">
+                {"<AP/>"}
+              </span>
 
-              {profile.image ? (
-                <Image
-                  src={profile.image}
-                  alt={profile.name}
-                  width={400}
-                  height={400}
-                  className="h-full w-full object-cover"
-                  priority
-                />
-              ) : (
-                <span className="text-7xl font-bold text-slate-700">
-                  {profile.shortName
-                    .split(" ")
-                    .map((word) => word[0])
-                    .join("")}
-                </span>
-              )}
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                Frontend Developer
+              </p>
 
             </div>
 
