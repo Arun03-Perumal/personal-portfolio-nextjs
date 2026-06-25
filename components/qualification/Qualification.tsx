@@ -5,12 +5,14 @@ export default function Qualification() {
   return (
     <section
       id="qualification"
-      className="bg-slate-50 py-24"
+      className="bg-slate-50 py-16 md:py-20 lg:py-24"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
 
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold">
+        {/* Heading */}
+
+        <div className="mb-12 text-center md:mb-16">
+          <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Education & Experience
           </h2>
 
@@ -19,7 +21,9 @@ export default function Qualification() {
           </p>
         </div>
 
-        <div className="grid gap-16 md:grid-cols-2">
+        {/* Timeline */}
+
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
 
           {/* Education */}
 
@@ -48,7 +52,7 @@ export default function Qualification() {
                     {item.institution}
                   </p>
 
-                  <p className="mt-2 text-slate-600">
+                  <p className="mt-2 leading-7 text-slate-600">
                     {item.description}
                   </p>
 
@@ -86,7 +90,7 @@ export default function Qualification() {
                     {item.company}
                   </p>
 
-                  <p className="mt-2 text-slate-600">
+                  <p className="mt-2 leading-7 text-slate-600">
                     {item.description}
                   </p>
 
