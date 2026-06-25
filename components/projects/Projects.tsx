@@ -1,97 +1,82 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-const projects = [
-  {
-    title: "Library Management System",
-    description:
-      "A full-stack MERN application for managing books, users, and library operations.",
-    tech: ["React", "Node.js", "MongoDB", "Express"],
-  },
-  {
-    title: "CRM Dashboard",
-    description:
-      "Customer Relationship Management dashboard built using React, TypeScript and Supabase.",
-    tech: ["React", "TypeScript", "Supabase"],
-  },
-  {
-    title: "Netflix Clone",
-    description:
-      "Responsive movie streaming UI with API integration and dynamic content rendering.",
-    tech: ["React", "API", "Tailwind"],
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "Personal portfolio built using Next.js, TypeScript and Tailwind CSS.",
-    tech: ["Next.js", "TypeScript", "Tailwind"],
-  },
-];
+import { Card, CardContent } from "@/components/ui/card";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="py-24 bg-slate-50"
-    >
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">
-            Projects
+    <section id="projects" className="bg-slate-50 py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Section Header */}
+        <div className="mb-16 text-center">
+          <h2 className="text-4xl font-bold md:text-5xl">
+            Featured Projects
           </h2>
 
-          <p className="text-slate-500 mt-4">
-            Some of my recent work
+          <p className="mt-4 text-slate-500">
+            A selection of projects that showcase my technical skills and
+            problem-solving abilities.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-
+        {/* Projects Grid */}
+        <div className="grid gap-8 md:grid-cols-2">
           {projects.map((project) => (
             <Card
-              key={project.title}
-              className="hover:shadow-xl transition-all duration-300"
+              key={project.id}
+              className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <CardContent className="p-8">
+              {/* Project Image */}
+              <div className="flex h-56 items-center justify-center bg-slate-200 text-slate-500">
+                Project Image
+              </div>
 
-                <h3 className="text-2xl font-semibold mb-4">
+              <CardContent className="p-6">
+                <h3 className="mb-3 text-2xl font-semibold">
                   {project.title}
                 </h3>
 
-                <p className="text-slate-600 mb-6">
+                <p className="mb-6 leading-7 text-slate-600">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-
-                  {project.tech.map((tech) => (
+                {/* Technologies */}
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full bg-slate-100 px-3 py-1 text-sm"
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium"
                     >
                       {tech}
                     </span>
                   ))}
-
                 </div>
 
+                {/* Buttons */}
                 <div className="flex gap-3">
-                  <Button variant="outline">
-                    GitHub
+                  <Button asChild variant="outline">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>
                   </Button>
 
-                  <Button>
-                    Live Demo
+                  <Button asChild>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo
+                    </a>
                   </Button>
                 </div>
-
               </CardContent>
             </Card>
           ))}
-
         </div>
-
       </div>
     </section>
   );
