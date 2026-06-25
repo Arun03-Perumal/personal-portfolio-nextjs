@@ -8,21 +8,27 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-white py-24"
+      className="bg-white py-16 md:py-20 lg:py-24"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
 
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold">
+        {/* Heading */}
+
+        <div className="mb-12 text-center md:mb-16">
+
+          <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Contact Me
           </h2>
 
           <p className="mt-4 text-slate-500">
             Let's connect and build something amazing together.
           </p>
+
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2">
+        {/* Content */}
+
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
 
           {/* Contact Information */}
 
@@ -33,11 +39,12 @@ export default function Contact() {
               <Mail className="text-emerald-600" />
 
               <div>
+
                 <h4 className="font-semibold">
                   Email
                 </h4>
 
-                <p className="text-slate-600">
+                <p className="break-all text-slate-600">
                   {profile.email}
                 </p>
 
@@ -87,19 +94,26 @@ export default function Contact() {
 
           <form className="space-y-4">
 
-            <Input placeholder="Your Name" />
+            <Input
+              placeholder="Your Name"
+              className="w-full"
+            />
 
             <Input
               type="email"
               placeholder="Your Email"
+              className="w-full"
             />
 
             <Textarea
               placeholder="Your Message"
               rows={5}
+              className="w-full"
             />
 
-            <Button className="w-full">
+            <Button
+              className="w-full"
+            >
               Send Message
             </Button>
 
