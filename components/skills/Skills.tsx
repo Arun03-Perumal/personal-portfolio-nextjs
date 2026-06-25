@@ -23,30 +23,34 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-24 bg-slate-50"
+      className="bg-slate-50 py-16 md:py-20 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
 
-        <div className="text-center mb-16">
+        {/* Heading */}
 
-          <h2 className="text-4xl md:text-5xl font-bold">
+        <div className="mb-12 text-center md:mb-16">
+
+          <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Skills
           </h2>
 
-          <p className="text-slate-500 mt-4">
+          <p className="mt-4 text-slate-500">
             Technologies and tools I work with
           </p>
 
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {/* Skills Grid */}
+
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
 
           {skills.map((skill) => (
             <Card
               key={skill}
-              className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <CardContent className="flex items-center justify-center h-24 font-semibold text-lg">
+              <CardContent className="flex h-20 items-center justify-center px-3 text-center text-sm font-semibold sm:h-24 sm:text-base lg:text-lg">
                 {skill}
               </CardContent>
             </Card>
