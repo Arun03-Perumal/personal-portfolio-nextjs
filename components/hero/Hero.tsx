@@ -13,38 +13,56 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="flex min-h-screen items-center bg-gradient-to-br from-white via-slate-50 to-blue-50"
+      className="flex min-h-screen items-center bg-gradient-to-br from-white via-slate-50 to-blue-50 py-20 lg:py-0"
     >
       <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+          {/* Right Section (Mobile First) */}
+          <div className="order-1 mb-10 flex justify-center lg:order-2 lg:mb-0">
+
+            <div className="flex h-64 w-64 flex-col items-center justify-center rounded-full border border-slate-200 bg-gradient-to-br from-slate-100 via-slate-200 to-blue-100 shadow-[0_25px_70px_rgba(37,99,235,0.15)] transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_80px_rgba(37,99,235,0.2)] sm:h-72 sm:w-72 lg:h-96 lg:w-96">
+
+              <span className="select-none font-mono text-5xl font-bold tracking-tight text-slate-700 sm:text-6xl lg:text-7xl">
+                {"<AP/>"}
+              </span>
+
+              <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-500 sm:text-xs">
+                Frontend Developer
+              </p>
+
+            </div>
+
+          </div>
 
           {/* Left Section */}
 
-          <div>
+          <div className="order-2 text-center lg:order-1 lg:text-left">
 
-            <p className="mb-4 text-lg font-medium text-blue-600">
+            <p className="mb-3 text-base font-medium text-blue-600 sm:text-lg">
               Hello, I'm
             </p>
 
-            <h1 className="mb-4 text-6xl font-extrabold tracking-tight text-slate-900 lg:text-7xl">
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-7xl">
               {profile.name}
             </h1>
 
-            <h2 className="mb-2 text-3xl font-semibold text-blue-600">
+            <h2 className="mb-2 text-2xl font-semibold text-blue-600 sm:text-3xl">
               {profile.title}
             </h2>
 
-            <p className="mb-6 text-lg text-slate-600">
+            <p className="mb-6 text-base text-slate-600 sm:text-lg">
               {profile.subtitle}
             </p>
 
-            <p className="mb-8 max-w-xl text-lg leading-8 text-slate-500">
+            <p className="mx-auto mb-8 max-w-xl text-base leading-7 text-slate-500 lg:mx-0 lg:text-lg lg:leading-8">
               {profile.description}
             </p>
 
-            {/* Hero Skills */}
+            {/* Skills */}
 
-            <div className="mb-8 flex flex-wrap gap-3">
+            <div className="mb-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+
               {heroSkills.map((skill) => (
                 <span
                   key={skill}
@@ -53,11 +71,12 @@ export default function Hero() {
                   {skill}
                 </span>
               ))}
+
             </div>
 
             {/* Buttons */}
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
 
               <Button asChild size="lg">
                 <a href={profile.resume} download>
@@ -65,11 +84,7 @@ export default function Hero() {
                 </a>
               </Button>
 
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-              >
+              <Button asChild variant="outline" size="lg">
                 <a href="#contact">
                   Contact Me
                 </a>
@@ -79,7 +94,7 @@ export default function Hero() {
 
             {/* Social Links */}
 
-            <div className="mt-8 flex gap-6">
+            <div className="mt-8 flex justify-center gap-6 lg:justify-start">
 
               <a
                 href={profile.github}
@@ -107,24 +122,6 @@ export default function Hero() {
               >
                 LeetCode
               </a>
-
-            </div>
-
-          </div>
-
-          {/* Right Section */}
-
-          <div className="flex justify-center">
-
-            <div className="flex h-96 w-96 flex-col items-center justify-center rounded-full border border-slate-200 bg-gradient-to-br from-slate-100 via-slate-200 to-blue-100 shadow-[0_25px_70px_rgba(37,99,235,0.15)] transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_80px_rgba(37,99,235,0.2)]">
-
-              <span className="select-none font-mono text-7xl font-bold tracking-tight text-slate-700">
-                {"<AP/>"}
-              </span>
-
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-                Frontend Developer
-              </p>
 
             </div>
 
