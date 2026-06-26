@@ -1,0 +1,401 @@
+:root{
+  --toggle-size:42px;
+
+  --planet-size:24px;
+
+  --sun:#f2c94c;
+
+  --moon:#d7d7d8;
+
+  --shadow:#7d8597;
+
+  --star:#f2c94c;
+
+  --crater:#bcc2cf;
+
+  --transition:450ms cubic-bezier(.4,0,.2,1);
+}
+
+.toggle{
+
+  position:relative;
+
+  width:var(--toggle-size);
+
+  height:var(--toggle-size);
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-shrink:0;
+
+  user-select:none;
+
+  -webkit-tap-highlight-color:transparent;
+
+}
+
+.input{
+
+  display:none;
+
+}
+
+.planet{
+
+  position:relative;
+
+  width:var(--planet-size);
+
+  height:var(--planet-size);
+
+  border-radius:999px;
+
+  background:var(--sun);
+
+  overflow:hidden;
+
+  z-index:3;
+
+  transition:
+      background var(--transition),
+      transform var(--transition),
+      box-shadow var(--transition);
+
+  box-shadow:
+       0 0 12px rgba(242, 201, 76, 0.45),
+       0 0 24px rgba(242, 201, 76, 0.2);
+}
+
+.shadow{
+
+  position:absolute;
+
+  inset:0;
+
+  border-radius:50%;
+
+  background:var(--shadow);
+
+  transform:translate3d(34px,-34px,0);
+
+  opacity:0;
+
+  transition:
+      transform var(--transition),
+      opacity var(--transition);
+
+}
+
+.crater1,
+.crater2,
+.crater3{
+
+  position:absolute;
+
+  border-radius:50%;
+
+  background:var(--crater);
+
+  opacity:0;
+
+  transform:scale(.2);
+
+  transition:
+      opacity var(--transition),
+      transform var(--transition);
+
+}
+
+.crater1{
+
+  width:8px;
+  height:8px;
+
+  top:8px;
+  left:18px;
+
+}
+
+.crater2{
+
+  width:6px;
+  height:6px;
+
+  top:18px;
+  left:10px;
+
+}
+
+.crater3{
+
+  width:5px;
+  height:5px;
+
+  top:22px;
+  left:22px;
+
+}
+
+.star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: var(--size);
+  height: var(--size);
+
+  margin-left: calc(var(--size) / -2);
+  margin-top: calc(var(--size) / -2);
+
+  border-radius: 999px;
+
+  background: var(--star);
+
+  transform:
+    rotate(var(--angle))
+    translateY(-18px);
+
+  transform-origin: center;
+
+  box-shadow:
+    0 0 6px rgba(242, 201, 76, 0.9),
+    0 0 12px rgba(242, 201, 76, 0.4);
+
+  transition:
+    transform var(--transition),
+    opacity var(--transition),
+    background var(--transition);
+
+  animation: twinkle 2.8s ease-in-out infinite;
+}
+
+.star{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    width:var(--size);
+    height:var(--size);
+
+    margin-left:calc(var(--size)/-2);
+    margin-top:calc(var(--size)/-2);
+
+    border-radius:50%;
+
+    background:var(--star);
+
+    transform:
+        rotate(var(--angle))
+        translateY(-15px);
+
+    transform-origin:center;
+
+    box-shadow:
+        0 0 5px rgba(242,201,76,.8);
+
+    transition:
+        all .45s cubic-bezier(.4,0,.2,1);
+
+}
+
+.star:nth-child(1) { animation-delay: 0s; }
+.star:nth-child(2) { animation-delay: .25s; }
+.star:nth-child(3) { animation-delay: .5s; }
+.star:nth-child(4) { animation-delay: .75s; }
+.star:nth-child(5) { animation-delay: 1s; }
+.star:nth-child(6) { animation-delay: 1.25s; }
+.star:nth-child(7) { animation-delay: 1.5s; }
+.star:nth-child(8) { animation-delay: 1.75s; }
+
+/* =========================================
+   DARK MODE ANIMATION
+========================================= */
+
+.input:checked + .planet {
+  background: var(--moon);
+
+  transform: rotate(-25deg);
+
+  box-shadow:
+     0 0 10px rgba(255, 255, 255, 0.15),
+     0 0 20px rgba(255, 255, 255, 0.08);;
+}
+
+/* Shadow slides in */
+
+.input:checked + .planet .shadow{
+  opacity:1;
+
+  transform:translate3d(10px,-8px,0);
+}
+
+/* Moon Craters */
+
+.input:checked + .planet .crater1{
+
+  opacity:1;
+
+  transform:scale(1);
+
+  transition-delay:.08s;
+
+}
+
+.input:checked + .planet .crater2{
+
+  opacity:1;
+
+  transform:scale(1);
+
+  transition-delay:.13s;
+
+}
+
+.input:checked + .planet .crater3{
+
+  opacity:1;
+
+  transform:scale(1);
+
+  transition-delay:.18s;
+
+}
+
+/* =========================================
+   STARS
+========================================= */
+
+.input:checked ~ .stars {
+    opacity: 0;
+    transform: rotate(180deg) scale(0.7);
+    transition:
+        opacity .35s ease,
+        transform .45s cubic-bezier(.4,0,.2,1);
+}
+
+.input:checked ~ .stars .star:nth-child(-n+4){
+
+    opacity:0;
+
+    transform:
+        rotate(var(--angle))
+        translateY(-8px)
+        scale(0);
+
+}
+
+.input:checked ~ .stars .star:nth-child(n+5){
+
+    background:var(--crater);
+
+    transform:
+        rotate(var(--angle))
+        translateY(-8px)
+        scale(.8);
+
+}
+
+/* =========================================
+   STAR ANIMATION
+========================================= */
+
+.star{
+
+  animation: twinkle 3s ease-in-out infinite;
+
+}
+
+.star:nth-child(2){
+
+  animation-delay:.2s;
+
+}
+
+.star:nth-child(3){
+
+  animation-delay:.4s;
+
+}
+
+.star:nth-child(4){
+
+  animation-delay:.6s;
+
+}
+
+.star:nth-child(5){
+
+  animation-delay:.8s;
+
+}
+
+.star:nth-child(6){
+
+  animation-delay:1s;
+
+}
+
+.star:nth-child(7){
+
+  animation-delay:1.2s;
+
+}
+
+.star:nth-child(8){
+
+  animation-delay:1.4s;
+
+}
+
+@keyframes twinkle{
+
+  0%,100%{
+
+    transform:scale(1);
+
+    opacity:1;
+
+  }
+
+  50%{
+
+    transform:scale(.55);
+
+    opacity:.45;
+
+  }
+
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform:
+      rotate(var(--angle))
+      translateY(-18px)
+      scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform:
+      rotate(var(--angle))
+      translateY(-18px)
+      scale(0.65);
+  }
+}
+
+.toggle:hover .planet {
+  transform: scale(1.08);
+}
+
+.input:checked + .planet:hover {
+  transform: rotate(-25deg) scale(1.08);
+}
